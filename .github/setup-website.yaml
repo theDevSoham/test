@@ -1,0 +1,19 @@
+name: Setup Website
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Docs with Donovan
+        run: npx donovan
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: public
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
