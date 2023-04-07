@@ -14,8 +14,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Generate Docs with Donovan
-        run: npx donovan
+      - name: Clone Donovan
+        run: git clone https://github.com/fairfield-programming/donovan.git
+      - name: Use Donovan
+        run: npm link 
+      - name: Run donovan
+        run: donovan
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
         env:
