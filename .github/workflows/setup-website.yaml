@@ -16,6 +16,8 @@ jobs:
           node-version: 16
       - name: Clone Donovan
         run: git clone https://github.com/fairfield-programming/donovan.git
+      - name: Install deps
+        run: npm install
       - name: Use Donovan
         run: npm link 
       - name: Run donovan
